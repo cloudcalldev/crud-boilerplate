@@ -5,7 +5,7 @@
 * Full POST, PUT, PATCH, GET, DELETE endpoints pre-built - you just add the logic
 * Batch GET endpoint built in
 * DynamoDB integrated out the box
-* Easily hot-swappable DBs
+* Easily interchangeable DBs
 * Configuration held with ASM and cached for you
 * Health check baked in
 * Built with docker - ready for shipping to AWS or wherever you host your services
@@ -13,7 +13,7 @@
 * Authentication handled with JWT's
 * Monitoring using Graphite
 * Swagger and Swagger UI endpoint for all documentation
-* Bunyan logging with cooralation identifiers for easy traceability
+* Bunyan logging with correlation identifiers for easy traceability
 * Prebuilt handler file for Lambda usage
 * Completely written in Typescript for quick development
 
@@ -29,6 +29,8 @@ $ npm i
 $ rm -rf .git
 $ git init
 ```
+
+> Please set the ASM_REGION and ASM_SECRET in your environment variables or set the defaults in the `/lib/asm.configuration.ts`
 
 ### Build with:
 ```bash
