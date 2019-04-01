@@ -1,0 +1,92 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Example description",
+        "version": "1.0.0",
+        "title": "Example title",
+        "termsOfService": "https://www.cloudcall.com/",
+        "contact": {
+            "email": "YOUR CLOUD CALL EMAIL"
+        },
+        "license": {
+            "name": "License agreement",
+            "url": "https://www.cloudcall.com/"
+        }
+    },
+    "host": "YOUR HOST URL",
+    "basePath": "/",
+    "tags": [{
+            "name": "Example",
+            "description": "The example structure for swagger"
+        }
+    ],
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Example"
+                ],
+                "summary": "Home router",
+                "description": "Returns meta data from the package.json",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [{
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true,
+                        "description": "The JWT token (e.g. Bearer {jwt})",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Package meta data",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/MetaData"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "MetaData": {
+            "type": "object",
+            "required": [
+                "name",
+                "version",
+                "description",
+                "author"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "express-api"
+                },
+                "version": {
+                    "type": "string",
+                    "example": "0.0.1"
+                },
+                "description": {
+                    "type": "string",
+                    "example": "express api bolier plate"
+                },
+                "author": {
+                    "type": "string",
+                    "example": "cloudcall"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about cloudcall",
+        "url": "http://cloudcall.com"
+    }
+}
