@@ -1,7 +1,7 @@
 import { IRecord } from ".";
 
 export interface ICrudController {
-  save(): Promise<IRecord>;
-  delete(): Promise<void>;
-  get(): Promise<IRecord[]>;
+  save(record: IRecord): Promise<IRecord>;
+  delete(id: string): Promise<void>;
+  get(id: string | string[]): Promise<IRecord[]>;
 }

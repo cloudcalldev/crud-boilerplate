@@ -3,8 +3,8 @@ import { ICrudController } from "../interfaces";
 class Crud implements ICrudController {
   constructor() { }
 
-  get(): Promise<IRecord[]> { }
-  save(): Promise<IRecord> { }
+  get(id: string | string[]): Promise<IRecord[]> { }
+  save(record: IRecord): Promise<IRecord> { }
   delete(): Promise<void> {
   }
 }

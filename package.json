@@ -1,5 +1,5 @@
 {
-  "name": "@cloudcall/asm-crud-boilerplate",
+  "name": "@cloudcall/crud-boilerplate",
   "version": "1.0.0",
   "description": "CRUD API powered by Express, with optional DBs and ASM for configuration. Designed to be run in AWS Lambda",
   "main": "index.js",

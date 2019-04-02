@@ -42,7 +42,7 @@ describe("Utility API routes", () => {
                         return done(err);
                     }
 
-                    expect(res.header).to.not.have.key("x-powered-by");
+                    expect(res.header).not.toHaveProperty("x-powered-by");
                     done();
                 });
         });
