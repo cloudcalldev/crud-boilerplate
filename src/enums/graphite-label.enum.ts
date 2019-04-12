@@ -2,5 +2,8 @@
  * Graphite activity labels
  */
 export enum GraphiteLabel {
-    statName = "statName",
+    create = "create",
+    update = "update",
+    delete = "delete",
+    get = "get",
 }
