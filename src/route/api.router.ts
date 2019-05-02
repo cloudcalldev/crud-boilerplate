@@ -16,7 +16,7 @@ export class ApiRouter {
     this.router.get(`${this.BASE_PATH}/:id`, asyncMiddleware(async (req: Request, res: Response) => {
       this.logger.debug({ id: req.params.id }, `Getting the record for ${req.params.id}`);
 
-      const config = await Configuration.getConfig();
+      const config = await Configuration.getCredentials();
       const crud = new Crud(config);
 
       const data = await crud.get(req.params.id);
@@ -29,7 +29,7 @@ export class ApiRouter {
 
       // TODO: Validation
 
-      const config = await Configuration.getConfig();
+      const config = await Configuration.getCredentials();
       const crud = new Crud(config);
       const record = await crud.save(req.body);
 
@@ -43,7 +43,7 @@ export class ApiRouter {
 
       if (!req.body.ids || req.body.ids.length <= 0) { throw new BadRequest("Required field `ids` is not present"); }
 
-      const config = await Configuration.getConfig();
+      const config = await Configuration.getCredentials();
       const crud = new Crud(config);
       const data = await crud.get(req.body.ids);
       return res.json({ status: getStatusText(OK), data });
@@ -61,7 +61,7 @@ export class ApiRouter {
         ids = (ids as string).split(",").map((s: string) => s.trim());
       }
 
-      const config = await Configuration.getConfig();
+      const config = await Configuration.getCredentials();
       const crud = new Crud(config);
       const data = await crud.get(req.query.ids);
       return res.json({ status: getStatusText(OK), data });
@@ -70,7 +70,7 @@ export class ApiRouter {
     this.router.put(`${this.BASE_PATH}/:id`, asyncMiddleware(async (req: Request, res: Response) => {
       this.logger.debug({ id: req.params.id }, `Updating the record with ID ${req.params.id}`);
 
-      const config = await Configuration.getConfig();
+      const config = await Configuration.getCredentials();
       const settingsInstance = new Crud(config);
       const record = await settingsInstance.save(req.body);
 
@@ -80,7 +80,7 @@ export class ApiRouter {
     this.router.delete(`${this.BASE_PATH}/:id`, asyncMiddleware(async (req: Request, res: Response) => {
       this.logger.debug({ id: req.params.id }, `Deleting a record by Id ${req.params.id}`);
 
-      const config = await Configuration.getConfig();
+      const config = await Configuration.getCredentials();
       const crud = new Crud(config);
       await crud.delete(req.params.id);
 
