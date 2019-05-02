@@ -1,4 +1,4 @@
-export interface IJwtData {
+interface IJwtData {
   userId: number;
   username: string;
 }

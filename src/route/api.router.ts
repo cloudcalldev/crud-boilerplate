@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import { BadRequest } from "http-errors";
 import { getStatusText, OK } from "http-status-codes";
-import { Crud } from "../controllers";
+import { Crud } from "../controllers/crud.controller";
 import { Configuration } from "../lib";
 import { Logger } from "../lib/logger";
 import { asyncMiddleware } from "../middleware/async.middleware";
@@ -31,9 +31,9 @@ export class ApiRouter {
 
       const config = await Configuration.getCredentials();
       const crud = new Crud(config);
-      const record = await crud.save(req.body);
+      const data = await crud.save(req.body);
 
-      return res.json({ status: getStatusText(OK) });
+      return res.json({ status: getStatusText(OK), data });
     }));
 
     // Although this is a post endpoint, it actually GETs data
@@ -72,9 +72,9 @@ export class ApiRouter {
 
       const config = await Configuration.getCredentials();
       const settingsInstance = new Crud(config);
-      const record = await settingsInstance.save(req.body);
+      const data = await settingsInstance.save(req.body);
 
-      return res.json({ status: getStatusText(OK) });
+      return res.json({ status: getStatusText(OK), data });
     }));
 
     this.router.delete(`${this.BASE_PATH}/:id`, asyncMiddleware(async (req: Request, res: Response) => {

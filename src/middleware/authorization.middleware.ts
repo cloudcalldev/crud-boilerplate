@@ -18,7 +18,7 @@ export function requireJWTAuth(req: Request, res: Response, next: NextFunction):
     if (authHeader !== undefined && authHeader.match(/^bearer /i)) {
         // Unpack JWT provided in authorization header
         req.jwt = jwt.decode(authHeader.replace(/^bearer /i, "")) as IJwtData;
-        req.jwtToken = authHeader.match(/^bearer /i);
+        req.jwtToken = authHeader.replace(/^bearer /i, "");
     } else if (req.query.jwt) {
         // Unpack JWT provided in query string
         req.jwt = jwt.decode(req.query.jwt) as IJwtData;
