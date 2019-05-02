@@ -2,6 +2,7 @@
 import { Router } from "express";
 import { ApiRouter } from "./api.router";
 import { HomeRouter } from "./home.router";
+import { HealthRouter } from "./health.router";
 
 export class Routes {
     public router: Router = Router();
@@ -9,5 +10,6 @@ export class Routes {
     constructor() {
         this.router.use(new HomeRouter().router);
         this.router.use(new ApiRouter().router);
+        this.router.use(new HealthRouter().router);
     }
 }

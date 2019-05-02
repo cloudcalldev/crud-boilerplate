@@ -6,7 +6,7 @@ describe("Utility API routes", () => {
 
     describe("GET /", () => {
 
-        it("should return service metadata", (done) => {
+        test("should return service metadata", (done) => {
             const metadata = require(join("..", "..", "package.json"));
             app.get("/")
                 .expect(HttpStatusCodes.OK)
@@ -25,7 +25,7 @@ describe("Utility API routes", () => {
 
     describe("GET /teapot", () => {
 
-        it("should return 418 `I'm a teapot`", (done) => {
+        test("should return 418 `I'm a teapot`", (done) => {
             app.get("/teapot")
                 .expect(HttpStatusCodes.IM_A_TEAPOT)
                 .expect("content-type", /json/)
@@ -33,7 +33,7 @@ describe("Utility API routes", () => {
                 .end(done);
         });
 
-        it("should not return the `x-powered-by` header", (done) => {
+        test("should not return the `x-powered-by` header", (done) => {
             app.get("/teapot")
                 .expect(HttpStatusCodes.IM_A_TEAPOT)
                 .expect("content-type", /json/)
@@ -50,7 +50,7 @@ describe("Utility API routes", () => {
 
     describe("GET /error", () => {
 
-        it("should return 500 `Internal Server Error`", (done) => {
+        test("should return 500 `Internal Server Error`", (done) => {
             app.get("/error")
                 .expect(HttpStatusCodes.INTERNAL_SERVER_ERROR)
                 .expect("content-type", /json/)
