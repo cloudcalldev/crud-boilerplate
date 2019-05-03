@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import { set as setForRequest } from "express-http-context";
 import { BadRequest } from "http-errors";
 import * as jwt from "jsonwebtoken";
 

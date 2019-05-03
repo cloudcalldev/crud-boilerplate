@@ -8,7 +8,7 @@ const sampleJwt = "";
 
 describe("Utility API routes", () => {
 
-  before(() => {
+  beforeAll(() => {
     return Configuration.getCredentials().catch(error => console.error("Could not load configuration so can not start the application", error));
   });
 
