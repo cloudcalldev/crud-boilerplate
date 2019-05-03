@@ -20,7 +20,7 @@
 ## Get Setup
 ```bash
 # Clone the repo
-$ git clone https://github.com/cloudcalldev/asm-crud-boilerplate.git
+$ git clone https://github.com/cloudcalldev/crud-boilerplate.git
 
 # Download dependencies
 $ npm i
@@ -51,3 +51,6 @@ $ npm test
 ```bash
 $ npm run lint
 ```
+
+## Something Missing?
+If you notice something missing from this boilerplate, please let us know by raising a [new issue](https://github.com/cloudcalldev/crud-boilerplate/issues/new)
