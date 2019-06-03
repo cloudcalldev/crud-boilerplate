@@ -11,7 +11,7 @@ const logger: Bunyan = Logger.getInstance();
  */
 export class Configuration {
 
-    private static _asmRegion = process.env.ASM_REGION || "<YOUR REGION HERE>";
+    private static _asmRegion = process.env.ASM_REGION || process.env.AWS_REGION || "<YOUR REGION HERE>";
     private static _asmSecretName = process.env.ASM_SECRET || "<YOUR SERVICE NAME HERE>";
     private static _config: IApplicationConfiguration;
 
