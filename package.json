@@ -54,7 +54,7 @@
     "typescript": "~3.2.2"
   },
   "dependencies": {
-    "aws-sdk": "^2.371.0",
+    "aws-sdk": "^2.814.0",
     "aws-serverless-express": "^3.3.5",
     "bunyan": "^1.8.12",
     "express": "^4.16.4",
